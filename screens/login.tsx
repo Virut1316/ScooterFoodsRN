@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-  Button,
   Image,
   ImageBackground,
+  TouchableNativeFeedback,
   Pressable,
   StyleSheet,
   Text,
@@ -12,26 +12,46 @@ import {
 import {images} from '../assets/images';
 
 export const LoginScreen = () => {
-  const login = () => {};
+  let [username, setUsername] = useState('');
+  let [password, setPassword] = useState('');
+
+  const login = async () => {
+    fetch('/api/login', {
+      method: 'POST',
+      mode: 'no-cors',
+      credentials: 'same-origin',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username, password}),
+    })
+      .then(res => res.json())
+      .then(res => loginRedirection(res));
+  };
+
+  const loginRedirection = (res: any) => {
+    console.log('logged and redirected with:' + res);
+  };
+
+  useEffect(() => {
+    console.log(username + ' ' + password);
+  }, [username]);
 
   return (
     <ImageBackground
-      imageStyle={{opacity: 0.65}}
+      imageStyle={{opacity: 0.85}}
       source={{uri: images.loginBackground}}
       style={[{width: '100%', height: '100%'}, styles.centralContainer]}>
       <View style={{flex: 2}}></View>
-      <Image
-        source={{uri: images.logo}}
-        style={{flex: 1, width: 300, height: 1}}></Image>
       <View style={{flex: 3}}></View>
       <View style={[styles.card, {flex: 5}]}>
         <View style={{flex: 0.3}}></View>
         <TextInput
           style={[{flex: 1}, styles.input]}
+          onChangeText={setUsername}
           placeholder="Username"></TextInput>
         <View style={{flex: 0.3}}></View>
         <TextInput
           secureTextEntry={true}
+          onChangeText={setPassword}
           style={[styles.input, {flex: 1}]}
           placeholder="Password"></TextInput>
         <View style={{flex: 1}}></View>
