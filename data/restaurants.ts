@@ -52,5 +52,14 @@ export function restaurantsData():Irestaurant[]{
                 type:"Bistro",
                 image_id:3,
                 },
+                {
+                id:4,
+                name:"Lili's Tamales",
+                address:"4567 North Pana, Quito",
+                location:{lat:"",lon:""},
+                stars:3,
+                type:"Lounge",
+                image_id:4,
+                },
             ])
 }

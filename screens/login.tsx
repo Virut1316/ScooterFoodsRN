@@ -1,17 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Image,
   ImageBackground,
-  TouchableNativeFeedback,
   Pressable,
   StyleSheet,
   Text,
   TextInput,
   View,
+  Alert,
 } from 'react-native';
 import {images} from '../assets/images';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({
+  navigation,
+  route,
+}: {
+  navigation: any;
+  route: any;
+}) => {
   let [username, setUsername] = useState('');
   let [password, setPassword] = useState('');
 
@@ -28,7 +33,17 @@ export const LoginScreen = () => {
   };
 
   const loginRedirection = (res: any) => {
-    console.log('logged and redirected with:' + res);
+    if (res.id > 0) navigation.navigate('Main Screen', res);
+    else
+      Alert.alert('Unable to sign in', 'Incorrect credentials', [
+        {
+          text: 'OK',
+          onPress: () => {
+            setUsername('');
+            setPassword('');
+          },
+        },
+      ]);
   };
 
   useEffect(() => {
@@ -47,13 +62,17 @@ export const LoginScreen = () => {
         <TextInput
           style={[{flex: 1}, styles.input]}
           onChangeText={setUsername}
-          placeholder="Username"></TextInput>
+          placeholder="Username">
+          {username}
+        </TextInput>
         <View style={{flex: 0.3}}></View>
         <TextInput
           secureTextEntry={true}
           onChangeText={setPassword}
           style={[styles.input, {flex: 1}]}
-          placeholder="Password"></TextInput>
+          placeholder="Password">
+          {password}
+        </TextInput>
         <View style={{flex: 1}}></View>
         <Pressable style={[styles.button, {flex: 1}]} onPress={login}>
           <Text style={{color: '#ffffff'}}>Login</Text>

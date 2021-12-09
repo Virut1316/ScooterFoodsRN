@@ -26,10 +26,15 @@ new Server({
 
         if(x.username===req.username)
           if(x.password===req.password)
-            return true;
+            return x;
       }
 
-      return false;
+      return {id:0,
+        username:'',
+        password:'',
+        email:'',
+        image_id:0,
+        liked_id:[],};
     });
 
   },

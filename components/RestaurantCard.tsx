@@ -1,30 +1,35 @@
-import React from 'react';
-import {
-  Button,
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, Text} from 'react-native';
+import {Card} from 'react-native-elements';
+import {images, restaurantImage} from '../assets/images';
 
-export const RestaurantCard = () => {
+export const RestaurantCard = (props: any) => {
+  console.log(props);
   return (
-    <View style={styles.card}>
-      <View style={{flex: 1}}></View>
-      <View style={{flex: 1}}></View>
-      <View style={{flex: 1}}></View>
-    </View>
+    <Card containerStyle={styles.card}>
+      <Card.Image
+        style={{borderRadius: 10}}
+        source={{
+          uri: restaurantImage(props.restaurantData.image_id),
+        }}></Card.Image>
+      <Card.Divider />
+      <Card.Title>{props.restaurantData.name}</Card.Title>
+      <Text>{props.restaurantData.address}</Text>
+    </Card>
   );
 };
 
+{
+  /* <View style={styles.card}>
+      <View style={{flex: 1}}></View>
+      <View style={{flex: 1}}></View>
+      <View style={{flex: 1}}></View>
+    </View> */
+}
+
 const styles = StyleSheet.create({
   card: {
-    width: '70%',
-    height: '30%',
-    backgroundColor: '#FFF0EB',
+    backgroundColor: '#fff',
     borderRadius: 20,
     opacity: 1.0,
     shadowColor: '#000',
@@ -35,6 +40,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 7,
 
-    elevation: 24,
+    elevation: 10,
   },
 });
