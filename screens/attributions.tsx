@@ -10,6 +10,13 @@ export const LoginScreen = () => {
       <a href="https://www.vecteezy.com/free-vector/ornament">
         Ornament Vectors by Vecteezy
       </a>
+      <a href="https://icons8.com/icon/8694/restaurant">
+        Restaurant icon by Icons8
+      </a>
+      <a href="https://icons8.com/icon/60649/checkout">
+        Checkout icon by Icons8
+      </a>
+      <a href="https://icons8.com/icon/77240/gear">Gear icon by Icons8</a>
     </ImageBackground>
   );
 };

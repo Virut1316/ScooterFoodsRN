@@ -45,9 +45,9 @@ export function restaurantsData():Irestaurant[]{
                 type:"Bistro",
                 image_id:1,
                 menu:{
-                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
-                    lunch:['Tuna toast','Ramen','Lunch Burger'],
-                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                    breakfast:['German Toast','Ecuatorian BreakFast','Morning Burger'],
+                    lunch:['Tuna Bread','Tacos','Pizza'],
+                    dinner:['Nuggets','Sandwich','Meat and corn'],
                 }
                 },
                 {
@@ -59,7 +59,7 @@ export function restaurantsData():Irestaurant[]{
                 type:"Bistro",
                 image_id:2,
                 menu:{
-                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
+                    breakfast:['French Toast','Canadian BreakFast','Morning Burger'],
                     lunch:['Tuna toast','Ramen','Lunch Burger'],
                     dinner:['Parsino','Steak and vegetables','Veggie Meat'],
                 }
@@ -73,9 +73,9 @@ export function restaurantsData():Irestaurant[]{
                 type:"Bistro",
                 image_id:3,
                 menu:{
-                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
-                    lunch:['Tuna toast','Ramen','Lunch Burger'],
-                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                    breakfast:['Australian Toast','Mexican BreakFast','Tortilla'],
+                    lunch:['Roast Macarroni','BLQ Sandwich','Lunch Cereal'],
+                    dinner:['Chicken wings','Milanesa','Hotdog supreme'],
                 }
                 },
                 {
@@ -87,10 +87,38 @@ export function restaurantsData():Irestaurant[]{
                 type:"Lounge",
                 image_id:4,
                 menu:{
-                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
-                    lunch:['Tuna toast','Ramen','Lunch Burger'],
-                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                    breakfast:['Mashed Plantains','Fruit and Yougurt','Steak'],
+                    lunch:['Sandwich','Soup','Shawarma'],
+                    dinner:['Salad','Steak and Salad','Tamal'],
                 }
                 },
+                {
+                    id:5,
+                    name:"Little Natasha",
+                    address:"4777 News Lane, Quito",
+                    location:{lat:"",lon:""},
+                    stars:3,
+                    type:"Lounge",
+                    image_id:6,
+                    menu:{
+                        breakfast:['Hashbrown','Wafle','Cookies'],
+                        lunch:['Lasagna','Pizza','Pasta'],
+                        dinner:['Pasta with cheese','Pasta with Tomatoe','Pasta with pasta'],
+                    }
+                    },
+                    {
+                        id:6,
+                        name:"Steak and Plates",
+                        address:"6687 Dizzy Rd, Charlotte",
+                        location:{lat:"",lon:""},
+                        stars:3,
+                        type:"Restaurant",
+                        image_id:5,
+                        menu:{
+                            breakfast:['Steak','Steak and Eggs','T bone'],
+                            lunch:['Steak','Steak and vegetables','Steak pizza'],
+                            dinner:['Marinara pesto','Steak with cheese'],
+                        }
+                        },
             ])
 }
