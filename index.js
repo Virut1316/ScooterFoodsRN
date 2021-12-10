@@ -7,7 +7,7 @@ import App from './App';
 import {name as appName} from './app.json';
 
 import {Server} from 'miragejs';
-import { restaurantsData } from './data/restaurants';
+import { restaurantsData, restaurantsDataParam } from './data/restaurants';
 import { usersData } from './data/users';
 
 //https://www.swyx.io/react-query-miragejs-crud/ Functionality for Typescript
@@ -37,6 +37,12 @@ new Server({
         liked_id:[],};
     });
 
+    this.get("/restaurantsFiltered/:match", (schema, request) => {
+      let match = request.params.match
+      console.log(match);
+    
+      return restaurantsDataParam(match);
+    })
   },
 });
 

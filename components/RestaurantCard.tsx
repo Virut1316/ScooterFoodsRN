@@ -1,21 +1,31 @@
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect} from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, TouchableNativeFeedback} from 'react-native';
 import {Card} from 'react-native-elements';
 import {images, restaurantImage} from '../assets/images';
+import {useNavigation} from '@react-navigation/native';
 
 export const RestaurantCard = (props: any) => {
-  console.log(props);
+  const Stack = createNativeStackNavigator();
+  const navigation = useNavigation();
+
+  const sendToDestiny = () => {
+    navigation.getParent()?.navigate('Single Restaurant', props);
+  };
+
   return (
-    <Card containerStyle={styles.card}>
-      <Card.Image
-        style={{borderRadius: 10}}
-        source={{
-          uri: restaurantImage(props.restaurantData.image_id),
-        }}></Card.Image>
-      <Card.Divider />
-      <Card.Title>{props.restaurantData.name}</Card.Title>
-      <Text>{props.restaurantData.address}</Text>
-    </Card>
+    <TouchableNativeFeedback onPress={sendToDestiny}>
+      <Card containerStyle={styles.card}>
+        <Card.Image
+          style={{borderRadius: 10}}
+          source={{
+            uri: restaurantImage(props.restaurantData.image_id),
+          }}></Card.Image>
+        <Card.Divider />
+        <Card.Title>{props.restaurantData.name}</Card.Title>
+        <Text>{props.restaurantData.address}</Text>
+      </Card>
+    </TouchableNativeFeedback>
   );
 };
 

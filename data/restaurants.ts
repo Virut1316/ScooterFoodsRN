@@ -4,8 +4,6 @@ export interface Imenu{
     breakfast:string[],
     lunch:string[],
     dinner:string[],
-    drinks:string[],
-    desserts:string[],
 }
 
 interface Ilocation{
@@ -20,7 +18,20 @@ export interface Irestaurant{
     location:Ilocation,
     stars:number,
     type:string,
-    image_id:number
+    image_id:number,
+    menu:Imenu,
+}
+
+export function restaurantsDataParam(match:string):Irestaurant[]{
+    let filtered = [];
+    let rawData = restaurantsData();
+    for(let x of rawData){
+        if(x.address.includes(match))
+            filtered.push(x)
+
+    }
+
+    return(filtered);
 }
 
 export function restaurantsData():Irestaurant[]{
@@ -33,15 +44,25 @@ export function restaurantsData():Irestaurant[]{
                 stars:4,
                 type:"Bistro",
                 image_id:1,
+                menu:{
+                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
+                    lunch:['Tuna toast','Ramen','Lunch Burger'],
+                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                }
                 },
                 {
                 id:2,
                 name:"Magic Beans",
-                address:"4565 Harvest Moon, New York",
+                address:"4578 Arcane Street, New York",
                 location:{lat:"",lon:""},
                 stars:4,
                 type:"Bistro",
                 image_id:2,
+                menu:{
+                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
+                    lunch:['Tuna toast','Ramen','Lunch Burger'],
+                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                }
                 },
                 {
                 id:3,
@@ -51,6 +72,11 @@ export function restaurantsData():Irestaurant[]{
                 stars:4,
                 type:"Bistro",
                 image_id:3,
+                menu:{
+                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
+                    lunch:['Tuna toast','Ramen','Lunch Burger'],
+                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                }
                 },
                 {
                 id:4,
@@ -60,6 +86,11 @@ export function restaurantsData():Irestaurant[]{
                 stars:3,
                 type:"Lounge",
                 image_id:4,
+                menu:{
+                    breakfast:['French Toast','Canadian BreackFast','Morning Burger'],
+                    lunch:['Tuna toast','Ramen','Lunch Burger'],
+                    dinner:['Parsino','Steak and vegetables','Veggie Meat'],
+                }
                 },
             ])
 }

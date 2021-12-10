@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Image,
   Text,
@@ -18,6 +18,9 @@ export const SettingsTab: any = ({
   route: any;
 }) => {
   const {username, email, image_id} = route.params; //information from the logged user
+  useEffect(() => {
+    console.log();
+  });
 
   return (
     <ImageBackground
